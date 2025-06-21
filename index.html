@@ -146,32 +146,32 @@
                 <h3 class="text-4xl font-bold text-center mb-4 gradient-text">Join the Party</h3>
                 <p class="text-center text-gray-400 mb-12 text-lg">Reserve your spot for this exclusive event</p>
                 
-                <form class="bg-gray-800 p-8 rounded-2xl border border-gray-700">
+                <form action="https://formspree.io/f/xrbkarwy" method="POST" class="bg-gray-800 p-8 rounded-2xl border border-gray-700">
                     <!-- Name -->
                     <div class="mb-6">
                         <label class="block text-sm font-medium text-gray-300 mb-2">Name *</label>
-                        <input type="text" required 
+                        <input type="text" name="name" required 
                                class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all duration-300">
                     </div>
                     
                     <!-- Email -->
                     <div class="mb-6">
                         <label class="block text-sm font-medium text-gray-300 mb-2">Email *</label>
-                        <input type="email" required placeholder="your@email.com"
+                        <input type="email" name="email" required placeholder="your@email.com"
                                class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all duration-300">
                     </div>
                     
                     <!-- Instagram Handle -->
                     <div class="mb-6">
                         <label class="block text-sm font-medium text-gray-300 mb-2">Instagram Handle</label>
-                        <input type="text" placeholder="@yourusername"
+                        <input type="text" name="instagram" placeholder="@yourusername"
                                class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all duration-300">
                     </div>
                     
                     <!-- Who are you dropdown -->
                     <div class="mb-8">
                         <label class="block text-sm font-medium text-gray-300 mb-2">Who are you? *</label>
-                        <select required 
+                        <select name="role" required 
                                 class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all duration-300">
                             <option value="">Select your role</option>
                             <option value="guest">Guest</option>
@@ -231,266 +231,40 @@
             <img src="hbar_main_400x400 CIRCLE copy 2.png" alt="hbar" class="w-12 h-12">
         </div>
         
-        <!-- Simple Admin Panel (hidden by default) -->
-        <div class="absolute bottom-4 right-4">
-            <button onclick="toggleAdmin()" class="text-xs text-gray-600 hover:text-gray-400">Admin</button>
-        </div>
+
     </footer>
 
     <script>
-        // Google Sheets Configuration
-        // You'll need to replace these with your actual values (see setup instructions below)
-        const GOOGLE_SHEETS_CONFIG = {
-            // Get this URL from Google Apps Script deployment (see setup instructions)
-            scriptURL: 'https://script.google.com/macros/s/AKfycbw9bTFLR2zvRXt8536mm4C6HnfrBKoQd9Bs6Fne_CkpKf3GEY12apCtoVkgAnmNWOg/exec',
-            
-            // Alternative method using Google Sheets API directly
-            apiKey: 'YOUR_API_KEY_HERE',
-            spreadsheetId: 'YOUR_SPREADSHEET_ID_HERE',
-            range: 'Sheet1!A:E' // Adjust range as needed
-        };
-
-        // Method 1: Using Google Apps Script (Recommended - Easier)
-        async function submitToGoogleSheets(formData) {
-            try {
-                console.log('🚀 Attempting to submit to:', GOOGLE_SHEETS_CONFIG.scriptURL);
-                console.log('📊 Form data being sent:', formData);
-                
-                const response = await fetch(GOOGLE_SHEETS_CONFIG.scriptURL, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(formData)
-                });
-                
-                console.log('📡 Response status:', response.status);
-                console.log('📡 Response ok:', response.ok);
-                console.log('📡 Response headers:', [...response.headers.entries()]);
-                
-                const responseText = await response.text();
-                console.log('📄 Raw response text:', responseText);
-                
-                // Try to parse as JSON
-                let parsedResponse;
-                try {
-                    parsedResponse = JSON.parse(responseText);
-                    console.log('📄 Parsed response:', parsedResponse);
-                } catch (parseError) {
-                    console.warn('⚠️ Response is not valid JSON:', parseError);
-                    console.log('📄 Response as HTML/text:', responseText.substring(0, 500));
-                }
-                
-                if (response.ok && parsedResponse && parsedResponse.success) {
-                    return { success: true, response: parsedResponse };
-                } else {
-                    const errorMsg = parsedResponse ? parsedResponse.error : `HTTP ${response.status}: ${responseText}`;
-                    throw new Error(errorMsg);
-                }
-            } catch (error) {
-                console.error('❌ Google Sheets submission error:', error);
-                return { success: false, error: error.message };
-            }
-        }
-
-        // Simple JSON storage solution
-        function saveToLocalStorage(formData) {
-            // Get existing RSVPs or create empty array
-            const existingRSVPs = JSON.parse(localStorage.getItem('groovyNightsRSVPs') || '[]');
-            
-            // Add new RSVP
-            existingRSVPs.push(formData);
-            
-            // Save back to localStorage
-            localStorage.setItem('groovyNightsRSVPs', JSON.stringify(existingRSVPs));
-            
-            // Also log to console for easy copy-paste
-            console.log('📋 All RSVPs (copy this):', JSON.stringify(existingRSVPs, null, 2));
-            
-            return true;
-        }
-
-        // Form submission handler
-        document.querySelector('form').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
+        // Simple form handling - Formspree will handle everything automatically!
+        document.querySelector('form').addEventListener('submit', function(e) {
             // Show loading state
             const submitButton = e.target.querySelector('button[type="submit"]');
             const originalText = submitButton.textContent;
             submitButton.textContent = 'Submitting...';
             submitButton.disabled = true;
             
-            // Collect form data
-            const formData = {
-                name: e.target.querySelector('input[type="text"]').value,
-                email: e.target.querySelector('input[type="email"]').value,
-                instagram: e.target.querySelector('input[placeholder="@yourusername"]').value || 'Not provided',
-                role: e.target.querySelector('select').value,
-                timestamp: new Date().toLocaleString(),
-                date: new Date().toLocaleDateString(),
-                id: Date.now() // Simple unique ID
-            };
-            
-            console.log('RSVP Data:', formData);
-            
-            // Try Google Sheets first, fallback to localStorage
-            let success = false;
-            if (GOOGLE_SHEETS_CONFIG.scriptURL && GOOGLE_SHEETS_CONFIG.scriptURL !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
-                const result = await submitToGoogleSheets(formData);
-                if (result.success) {
-                    success = true;
-                    console.log('✅ Saved to Google Sheets');
-                } else {
-                    console.warn('⚠️ Google Sheets failed, using localStorage backup');
-                }
-            }
-            
-            // Always save to localStorage as backup
-            saveToLocalStorage(formData);
-            
-            // Success message
-            const method = success ? 'Google Sheets' : 'local storage';
-            alert(`Thank you ${formData.name}! Your RSVP has been recorded in ${method}.${formData.instagram !== 'Not provided' ? ` We'll check out your Instagram @${formData.instagram.replace('@', '')}!` : ''}`);
-            e.target.reset();
-            
-            // Reset button state
-            submitButton.textContent = originalText;
-            submitButton.disabled = false;
+            // Formspree will handle the form submission automatically
+            // Reset button state after a short delay to show loading
+            setTimeout(() => {
+                submitButton.textContent = originalText;
+                submitButton.disabled = false;
+            }, 2000);
         });
-
-        // Add a function to export RSVPs
-        window.exportRSVPs = function() {
-            const rsvps = JSON.parse(localStorage.getItem('groovyNightsRSVPs') || '[]');
-            const csvContent = "data:text/csv;charset=utf-8," 
-                + "Name,Email,Instagram,Role,Timestamp,Date\n"
-                + rsvps.map(r => `"${r.name}","${r.email}","${r.instagram}","${r.role}","${r.timestamp}","${r.date}"`).join('\n');
-            
-            const encodedUri = encodeURI(csvContent);
-            const link = document.createElement("a");
-            link.setAttribute("href", encodedUri);
-            link.setAttribute("download", "groovy_nights_rsvps.csv");
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        };
-
-        // Simple admin panel toggle
-        window.toggleAdmin = function() {
-            const rsvps = JSON.parse(localStorage.getItem('groovyNightsRSVPs') || '[]');
-            const count = rsvps.length;
-            
-            if (count === 0) {
-                alert('No RSVPs yet!');
-                return;
-            }
-            
-            const message = `📊 Total RSVPs: ${count}\n\n` +
-                'Recent RSVPs:\n' +
-                rsvps.slice(-5).map(r => `• ${r.name} (${r.email}) - ${r.role}`).join('\n') +
-                '\n\nActions:\n' +
-                '1. Check browser console for full JSON data\n' +
-                '2. Click OK then run exportRSVPs() in console to download CSV\n' +
-                '3. Run testGoogleSheets() to test Google Sheets connection';
-            
-            alert(message);
-            console.log('📋 All RSVPs:', rsvps);
-        };
-
-        // Test function for Google Sheets
-        window.testGoogleSheets = async function() {
-            const testData = {
-                name: 'Test User',
-                email: 'test@example.com',
-                instagram: '@test',
-                role: 'guest',
-                timestamp: new Date().toLocaleString(),
-                date: new Date().toLocaleDateString(),
-                id: Date.now()
-            };
-            
-            console.log('🧪 Testing Google Sheets with:', testData);
-            const result = await submitToGoogleSheets(testData);
-            
-            if (result.success) {
-                alert('✅ Google Sheets test SUCCESSFUL! Check your spreadsheet.');
-                console.log('✅ Test successful:', result);
-            } else {
-                alert('❌ Google Sheets test FAILED: ' + result.error);
-                console.error('❌ Test failed:', result);
-            }
-        };
     </script>
 
     <!-- 
     ========================================
-    GOOGLE SHEETS SETUP INSTRUCTIONS:
+    FORMSPREE SETUP:
     ========================================
     
-    STEP 1: Create a Google Sheet
-    1. Go to sheets.google.com
-    2. Create a new spreadsheet
-    3. Name it "Groovy Nights RSVP"
-    4. Set up column headers in row 1:
-       A1: Name
-       B1: Email
-       C1: Instagram
-       D1: Role  
-       E1: Timestamp
-       F1: Date
+    This form now uses Formspree - it's super simple!
     
-    STEP 2: Create Google Apps Script
-    1. In your Google Sheet, go to Extensions > Apps Script
-    2. Delete the default code and paste this:
-    
-    ```javascript
-    function doPost(e) {
-      try {
-        // Get the active spreadsheet
-        const sheet = SpreadsheetApp.getActiveSheet();
-        
-        // Parse the JSON data
-        const data = JSON.parse(e.postData.contents);
-        
-        // Append the data to the sheet
-        sheet.appendRow([
-          data.name,
-          data.email,
-          data.instagram,
-          data.role,
-          data.timestamp,
-          data.date
-        ]);
-        
-        // Return success response
-        return ContentService
-          .createTextOutput(JSON.stringify({success: true}))
-          .setMimeType(ContentService.MimeType.JSON);
-          
-      } catch (error) {
-        // Return error response
-        return ContentService
-          .createTextOutput(JSON.stringify({success: false, error: error.toString()}))
-          .setMimeType(ContentService.MimeType.JSON);
-      }
-    }
-    ```
-    
-    STEP 3: Deploy the Script
-    1. Click "Deploy" > "New deployment"
-    2. Choose type: "Web app"
-    3. Execute as: "Me"
-    4. Who has access: "Anyone"
-    5. Click "Deploy"
-    6. Copy the Web app URL
-    7. Replace 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE' above with this URL
-    
-    STEP 4: Test
-    1. Save this HTML file and open in browser
-    2. Fill out and submit the form
-    3. Check your Google Sheet - data should appear!
+    1. Form submissions are sent to: https://formspree.io/f/xrbkarwy
+    2. You'll receive emails with form submissions
+    3. Log into formspree.io to see all submissions
+    4. No complex setup needed - it just works!
     
     ========================================
     -->
-    </script>
 </body>
 </html> 
