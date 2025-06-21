@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Groovy Nights: Prague - Underground Summer Party</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                    },
+                    keyframes: {
+                        glow: {
+                            'from': { boxShadow: '0 0 20px #8b5cf6' },
+                            'to': { boxShadow: '0 0 30px #8b5cf6, 0 0 40px #8b5cf6' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-text {
+            background: linear-gradient(45deg, #8b5cf6, #ec4899, #06b6d4);
+            background-size: 200% 200%;
+            animation: gradient 3s ease infinite;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .hero-bg {
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
+        }
+    </style>
+</head>
+<body class="bg-black text-white font-sans overflow-x-hidden">
+    
+    <!-- Hero Section -->
+    <section class="hero-bg min-h-screen flex items-center justify-center relative">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-20 left-20 w-32 h-32 bg-purple-500 rounded-full blur-3xl animate-pulse-slow"></div>
+            <div class="absolute bottom-20 right-20 w-48 h-48 bg-pink-500 rounded-full blur-3xl animate-pulse-slow" style="animation-delay: 1s;"></div>
+            <div class="absolute top-1/2 left-1/4 w-24 h-24 bg-cyan-500 rounded-full blur-2xl animate-pulse-slow" style="animation-delay: 2s;"></div>
+        </div>
+        
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <h1 class="text-6xl md:text-8xl font-black mb-6 gradient-text">
+                GROOVY NIGHTS
+            </h1>
+            <h2 class="text-3xl md:text-4xl font-light mb-8 text-gray-300">
+                PRAGUE
+            </h2>
+            <p class="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto leading-relaxed mb-16">
+                Afro & Tech House. Fog. Lights. Models.<br>
+                <span class="text-purple-400 font-semibold">One night only.</span>
+            </p>
+            
+            <!-- Scroll indicator -->
+            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+                <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Section -->
+    <section class="py-20 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <h3 class="text-4xl font-bold text-center mb-16 gradient-text">Event Details</h3>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                <!-- Date -->
+                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-purple-500 transition-all duration-300 hover:transform hover:scale-105">
+                    <div class="text-purple-400 text-4xl mb-4">📅</div>
+                    <h4 class="text-xl font-semibold mb-2">Date</h4>
+                    <p class="text-gray-300">July [insert date]</p>
+                </div>
+                
+                <!-- Time -->
+                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-purple-500 transition-all duration-300 hover:transform hover:scale-105">
+                    <div class="text-purple-400 text-4xl mb-4">⏰</div>
+                    <h4 class="text-xl font-semibold mb-2">Time</h4>
+                    <p class="text-gray-300">22:00 – 04:00</p>
+                </div>
+                
+                <!-- Location -->
+                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-purple-500 transition-all duration-300 hover:transform hover:scale-105">
+                    <div class="text-purple-400 text-4xl mb-4">📍</div>
+                    <h4 class="text-xl font-semibold mb-2">Location</h4>
+                    <p class="text-gray-300">Patro Klub, Prague</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Influencer/VIP Section -->
+    <section class="py-20 bg-black relative">
+        <div class="absolute inset-0 bg-gradient-to-r from-purple-900/20 to-pink-900/20"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <h3 class="text-4xl font-bold text-center mb-4 gradient-text">VIP Experience</h3>
+            <p class="text-center text-gray-400 mb-16 text-lg">Exclusive perks for influencers, creators & VIPs</p>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Free Drinks -->
+                <div class="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl border border-purple-500/30 hover:border-purple-500 transition-all duration-300 hover:animate-glow">
+                    <div class="text-5xl mb-6 text-center">🍸</div>
+                    <h4 class="text-2xl font-bold text-center mb-4 text-purple-300">5 Free Drinks</h4>
+                    <p class="text-gray-400 text-center">Premium cocktails and drinks on the house for VIP guests</p>
+                </div>
+                
+                <!-- Pro Photographer -->
+                <div class="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl border border-purple-500/30 hover:border-purple-500 transition-all duration-300 hover:animate-glow">
+                    <div class="text-5xl mb-6 text-center">📸</div>
+                    <h4 class="text-2xl font-bold text-center mb-4 text-purple-300">Pro Photographer</h4>
+                    <p class="text-gray-400 text-center">Professional photography session for your content</p>
+                </div>
+                
+                <!-- Exclusive Access -->
+                <div class="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl border border-purple-500/30 hover:border-purple-500 transition-all duration-300 hover:animate-glow">
+                    <div class="text-5xl mb-6 text-center">🎫</div>
+                    <h4 class="text-2xl font-bold text-center mb-4 text-purple-300">Exclusive Guestlist Access</h4>
+                    <p class="text-gray-400 text-center">Priority guestlist and VIP area access</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RSVP Form Section -->
+    <section class="py-20 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="max-w-2xl mx-auto">
+                <h3 class="text-4xl font-bold text-center mb-4 gradient-text">Join the Party</h3>
+                <p class="text-center text-gray-400 mb-12 text-lg">Reserve your spot for this exclusive event</p>
+                
+                <form class="bg-gray-800 p-8 rounded-2xl border border-gray-700">
+                    <!-- Name -->
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium text-gray-300 mb-2">Name *</label>
+                        <input type="text" required 
+                               class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all duration-300">
+                    </div>
+                    
+                    <!-- Email -->
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium text-gray-300 mb-2">Email *</label>
+                        <input type="email" required placeholder="your@email.com"
+                               class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all duration-300">
+                    </div>
+                    
+                    <!-- Instagram Handle -->
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium text-gray-300 mb-2">Instagram Handle</label>
+                        <input type="text" placeholder="@yourusername"
+                               class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all duration-300">
+                    </div>
+                    
+                    <!-- Who are you dropdown -->
+                    <div class="mb-8">
+                        <label class="block text-sm font-medium text-gray-300 mb-2">Who are you? *</label>
+                        <select required 
+                                class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all duration-300">
+                            <option value="">Select your role</option>
+                            <option value="guest">Guest</option>
+                            <option value="influencer">Influencer</option>
+                            <option value="dj">DJ</option>
+                            <option value="crew">Crew</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Submit Button -->
+                    <button type="submit" 
+                            class="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold py-4 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-purple-500/50">
+                        Submit RSVP
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-black border-t border-gray-800 relative">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <!-- Social Links -->
+                <div class="flex justify-center space-x-6 mb-8">
+                    <a href="#" class="text-gray-400 hover:text-purple-400 transition-colors duration-300">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.84-.179-.959-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.361 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.42 1.56-.299.421-1.02.599-1.559.3z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-purple-400 transition-colors duration-300">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-purple-400 transition-colors duration-300">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-purple-400 transition-colors duration-300">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.719-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.89 2.745.097.118.112.222.083.343-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.746-1.378l-.747 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.624 0 11.99-5.367 11.99-11.987C24.007 5.367 18.641.001 12.017.001z"/>
+                        </svg>
+                    </a>
+                </div>
+                
+                <!-- Copyright -->
+                <p class="text-gray-600 text-sm">
+                    © 2025 Groovy Nights Prague. All rights reserved.
+                </p>
+            </div>
+        </div>
+        
+        <!-- hbar logo in corner -->
+        <div class="absolute bottom-4 left-4 opacity-30 hover:opacity-60 transition-opacity duration-300">
+            <img src="hbar_main_400x400 CIRCLE copy 2.png" alt="hbar" class="w-12 h-12">
+        </div>
+        
+        <!-- Simple Admin Panel (hidden by default) -->
+        <div class="absolute bottom-4 right-4">
+            <button onclick="toggleAdmin()" class="text-xs text-gray-600 hover:text-gray-400">Admin</button>
+        </div>
+    </footer>
+
+    <script>
+        // Google Sheets Configuration
+        // You'll need to replace these with your actual values (see setup instructions below)
+        const GOOGLE_SHEETS_CONFIG = {
+            // Get this URL from Google Apps Script deployment (see setup instructions)
+            scriptURL: 'https://script.google.com/macros/s/AKfycbyQlo7RWfU1Ukxit0tbIK1URxoZtJl2K_B3rdUFV1ypkGRPJuhSQ-4KWdKqFn-ogCzUoA/exec',
+            
+            // Alternative method using Google Sheets API directly
+            apiKey: 'YOUR_API_KEY_HERE',
+            spreadsheetId: 'YOUR_SPREADSHEET_ID_HERE',
+            range: 'Sheet1!A:E' // Adjust range as needed
+        };
+
+        // Method 1: Using Google Apps Script (Recommended - Easier)
+        async function submitToGoogleSheets(formData) {
+            try {
+                console.log('🚀 Attempting to submit to:', GOOGLE_SHEETS_CONFIG.scriptURL);
+                console.log('📊 Form data being sent:', formData);
+                
+                const response = await fetch(GOOGLE_SHEETS_CONFIG.scriptURL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+                
+                console.log('📡 Response status:', response.status);
+                console.log('📡 Response ok:', response.ok);
+                console.log('📡 Response headers:', [...response.headers.entries()]);
+                
+                const responseText = await response.text();
+                console.log('📄 Raw response text:', responseText);
+                
+                // Try to parse as JSON
+                let parsedResponse;
+                try {
+                    parsedResponse = JSON.parse(responseText);
+                    console.log('📄 Parsed response:', parsedResponse);
+                } catch (parseError) {
+                    console.warn('⚠️ Response is not valid JSON:', parseError);
+                    console.log('📄 Response as HTML/text:', responseText.substring(0, 500));
+                }
+                
+                if (response.ok && parsedResponse && parsedResponse.success) {
+                    return { success: true, response: parsedResponse };
+                } else {
+                    const errorMsg = parsedResponse ? parsedResponse.error : `HTTP ${response.status}: ${responseText}`;
+                    throw new Error(errorMsg);
+                }
+            } catch (error) {
+                console.error('❌ Google Sheets submission error:', error);
+                return { success: false, error: error.message };
+            }
+        }
+
+        // Simple JSON storage solution
+        function saveToLocalStorage(formData) {
+            // Get existing RSVPs or create empty array
+            const existingRSVPs = JSON.parse(localStorage.getItem('groovyNightsRSVPs') || '[]');
+            
+            // Add new RSVP
+            existingRSVPs.push(formData);
+            
+            // Save back to localStorage
+            localStorage.setItem('groovyNightsRSVPs', JSON.stringify(existingRSVPs));
+            
+            // Also log to console for easy copy-paste
+            console.log('📋 All RSVPs (copy this):', JSON.stringify(existingRSVPs, null, 2));
+            
+            return true;
+        }
+
+        // Form submission handler
+        document.querySelector('form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Show loading state
+            const submitButton = e.target.querySelector('button[type="submit"]');
+            const originalText = submitButton.textContent;
+            submitButton.textContent = 'Submitting...';
+            submitButton.disabled = true;
+            
+            // Collect form data
+            const formData = {
+                name: e.target.querySelector('input[type="text"]').value,
+                email: e.target.querySelector('input[type="email"]').value,
+                instagram: e.target.querySelector('input[placeholder="@yourusername"]').value || 'Not provided',
+                role: e.target.querySelector('select').value,
+                timestamp: new Date().toLocaleString(),
+                date: new Date().toLocaleDateString(),
+                id: Date.now() // Simple unique ID
+            };
+            
+            console.log('RSVP Data:', formData);
+            
+            // Try Google Sheets first, fallback to localStorage
+            let success = false;
+            if (GOOGLE_SHEETS_CONFIG.scriptURL && GOOGLE_SHEETS_CONFIG.scriptURL !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
+                const result = await submitToGoogleSheets(formData);
+                if (result.success) {
+                    success = true;
+                    console.log('✅ Saved to Google Sheets');
+                } else {
+                    console.warn('⚠️ Google Sheets failed, using localStorage backup');
+                }
+            }
+            
+            // Always save to localStorage as backup
+            saveToLocalStorage(formData);
+            
+            // Success message
+            const method = success ? 'Google Sheets' : 'local storage';
+            alert(`Thank you ${formData.name}! Your RSVP has been recorded in ${method}.${formData.instagram !== 'Not provided' ? ` We'll check out your Instagram @${formData.instagram.replace('@', '')}!` : ''}`);
+            e.target.reset();
+            
+            // Reset button state
+            submitButton.textContent = originalText;
+            submitButton.disabled = false;
+        });
+
+        // Add a function to export RSVPs
+        window.exportRSVPs = function() {
+            const rsvps = JSON.parse(localStorage.getItem('groovyNightsRSVPs') || '[]');
+            const csvContent = "data:text/csv;charset=utf-8," 
+                + "Name,Email,Instagram,Role,Timestamp,Date\n"
+                + rsvps.map(r => `"${r.name}","${r.email}","${r.instagram}","${r.role}","${r.timestamp}","${r.date}"`).join('\n');
+            
+            const encodedUri = encodeURI(csvContent);
+            const link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", "groovy_nights_rsvps.csv");
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        };
+
+        // Simple admin panel toggle
+        window.toggleAdmin = function() {
+            const rsvps = JSON.parse(localStorage.getItem('groovyNightsRSVPs') || '[]');
+            const count = rsvps.length;
+            
+            if (count === 0) {
+                alert('No RSVPs yet!');
+                return;
+            }
+            
+            const message = `📊 Total RSVPs: ${count}\n\n` +
+                'Recent RSVPs:\n' +
+                rsvps.slice(-5).map(r => `• ${r.name} (${r.email}) - ${r.role}`).join('\n') +
+                '\n\nActions:\n' +
+                '1. Check browser console for full JSON data\n' +
+                '2. Click OK then run exportRSVPs() in console to download CSV\n' +
+                '3. Run testGoogleSheets() to test Google Sheets connection';
+            
+            alert(message);
+            console.log('📋 All RSVPs:', rsvps);
+        };
+
+        // Test function for Google Sheets
+        window.testGoogleSheets = async function() {
+            const testData = {
+                name: 'Test User',
+                email: 'test@example.com',
+                instagram: '@test',
+                role: 'guest',
+                timestamp: new Date().toLocaleString(),
+                date: new Date().toLocaleDateString(),
+                id: Date.now()
+            };
+            
+            console.log('🧪 Testing Google Sheets with:', testData);
+            const result = await submitToGoogleSheets(testData);
+            
+            if (result.success) {
+                alert('✅ Google Sheets test SUCCESSFUL! Check your spreadsheet.');
+                console.log('✅ Test successful:', result);
+            } else {
+                alert('❌ Google Sheets test FAILED: ' + result.error);
+                console.error('❌ Test failed:', result);
+            }
+        };
+    </script>
+
+    <!-- 
+    ========================================
+    GOOGLE SHEETS SETUP INSTRUCTIONS:
+    ========================================
+    
+    STEP 1: Create a Google Sheet
+    1. Go to sheets.google.com
+    2. Create a new spreadsheet
+    3. Name it "Groovy Nights RSVP"
+    4. Set up column headers in row 1:
+       A1: Name
+       B1: Email
+       C1: Instagram
+       D1: Role  
+       E1: Timestamp
+       F1: Date
+    
+    STEP 2: Create Google Apps Script
+    1. In your Google Sheet, go to Extensions > Apps Script
+    2. Delete the default code and paste this:
+    
+    ```javascript
+    function doPost(e) {
+      try {
+        // Get the active spreadsheet
+        const sheet = SpreadsheetApp.getActiveSheet();
+        
+        // Parse the JSON data
+        const data = JSON.parse(e.postData.contents);
+        
+        // Append the data to the sheet
+        sheet.appendRow([
+          data.name,
+          data.email,
+          data.instagram,
+          data.role,
+          data.timestamp,
+          data.date
+        ]);
+        
+        // Return success response
+        return ContentService
+          .createTextOutput(JSON.stringify({success: true}))
+          .setMimeType(ContentService.MimeType.JSON);
+          
+      } catch (error) {
+        // Return error response
+        return ContentService
+          .createTextOutput(JSON.stringify({success: false, error: error.toString()}))
+          .setMimeType(ContentService.MimeType.JSON);
+      }
+    }
+    ```
+    
+    STEP 3: Deploy the Script
+    1. Click "Deploy" > "New deployment"
+    2. Choose type: "Web app"
+    3. Execute as: "Me"
+    4. Who has access: "Anyone"
+    5. Click "Deploy"
+    6. Copy the Web app URL
+    7. Replace 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE' above with this URL
+    
+    STEP 4: Test
+    1. Save this HTML file and open in browser
+    2. Fill out and submit the form
+    3. Check your Google Sheet - data should appear!
+    
+    ========================================
+    -->
+    </script>
+</body>
+</html> 
