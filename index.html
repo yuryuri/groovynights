@@ -146,47 +146,17 @@
                 <h3 class="text-4xl font-bold text-center mb-4 gradient-text">Join the Party</h3>
                 <p class="text-center text-gray-400 mb-12 text-lg">Reserve your spot for this exclusive event</p>
                 
-                <form action="https://formspree.io/f/xrbkarwy" method="POST" class="bg-gray-800 p-8 rounded-2xl border border-gray-700">
-                    <!-- Name -->
-                    <div class="mb-6">
-                        <label class="block text-sm font-medium text-gray-300 mb-2">Name *</label>
-                        <input type="text" name="name" required 
-                               class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all duration-300">
-                    </div>
-                    
-                    <!-- Email -->
-                    <div class="mb-6">
-                        <label class="block text-sm font-medium text-gray-300 mb-2">Email *</label>
-                        <input type="email" name="email" required placeholder="your@email.com"
-                               class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all duration-300">
-                    </div>
-                    
-                    <!-- Instagram Handle -->
-                    <div class="mb-6">
-                        <label class="block text-sm font-medium text-gray-300 mb-2">Instagram Handle</label>
-                        <input type="text" name="instagram" placeholder="@yourusername"
-                               class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all duration-300">
-                    </div>
-                    
-                    <!-- Who are you dropdown -->
-                    <div class="mb-8">
-                        <label class="block text-sm font-medium text-gray-300 mb-2">Who are you? *</label>
-                        <select name="role" required 
-                                class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all duration-300">
-                            <option value="">Select your role</option>
-                            <option value="guest">Guest</option>
-                            <option value="influencer">Influencer</option>
-                            <option value="dj">DJ</option>
-                            <option value="crew">Crew</option>
-                        </select>
-                    </div>
-                    
-                    <!-- Submit Button -->
-                    <button type="submit" 
-                            class="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold py-4 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-purple-500/50">
-                        Submit RSVP
-                    </button>
-                </form>
+                <!-- Airtable Embedded Form -->
+                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700">
+                    <iframe class="airtable-embed" 
+                            src="https://airtable.com/embed/appLYzfkUEXGTMCla/shrarryP09TQVb3bo" 
+                            frameborder="0" 
+                            onmousewheel="" 
+                            width="100%" 
+                            height="533" 
+                            style="background: transparent; border: 1px solid #444; border-radius: 8px;">
+                    </iframe>
+                </div>
             </div>
         </div>
     </section>
@@ -234,35 +204,22 @@
 
     </footer>
 
-    <script>
-        // Simple form handling - Formspree will handle everything automatically!
-        document.querySelector('form').addEventListener('submit', function(e) {
-            // Show loading state
-            const submitButton = e.target.querySelector('button[type="submit"]');
-            const originalText = submitButton.textContent;
-            submitButton.textContent = 'Submitting...';
-            submitButton.disabled = true;
-            
-            // Formspree will handle the form submission automatically
-            // Reset button state after a short delay to show loading
-            setTimeout(() => {
-                submitButton.textContent = originalText;
-                submitButton.disabled = false;
-            }, 2000);
-        });
-    </script>
+    <!-- No JavaScript needed - Airtable handles everything! -->
 
     <!-- 
     ========================================
-    FORMSPREE SETUP:
+    AIRTABLE SETUP:
     ========================================
     
-    This form now uses Formspree - it's super simple!
+    This form now uses Airtable - perfect for party RSVPs!
     
-    1. Form submissions are sent to: https://formspree.io/f/xrbkarwy
-    2. You'll receive emails with form submissions
-    3. Log into formspree.io to see all submissions
-    4. No complex setup needed - it just works!
+    ✅ Unlimited submissions (no 50-entry limit like Formspree)
+    ✅ Beautiful database view of all RSVPs
+    ✅ Easy to export, filter, and manage
+    ✅ Real-time updates
+    ✅ Professional data management
+    
+    View all RSVPs: https://airtable.com/appLYzfkUEXGTMCla/shrarryP09TQVb3bo
     
     ========================================
     -->
