@@ -86,7 +86,7 @@
                 <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-purple-500 transition-all duration-300 hover:transform hover:scale-105">
                     <div class="text-purple-400 text-4xl mb-4">📅</div>
                     <h4 class="text-xl font-semibold mb-2">Date</h4>
-                    <p class="text-gray-300">July [insert date]</p>
+                    <p class="text-gray-300">Friday, July 4th, 2025</p>
                 </div>
                 
                 <!-- Time -->
@@ -100,7 +100,13 @@
                 <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-purple-500 transition-all duration-300 hover:transform hover:scale-105">
                     <div class="text-purple-400 text-4xl mb-4">📍</div>
                     <h4 class="text-xl font-semibold mb-2">Location</h4>
-                    <p class="text-gray-300">Patro Klub, Prague</p>
+                    <div class="text-gray-300">
+                        <a href="https://www.2patro.com/" target="_blank" class="text-purple-400 hover:text-purple-300 transition-colors underline">2.Patro Club</a>
+                        <br>Prague, Czech Republic
+                    </div>
+                    <div class="flex items-center justify-center mt-3">
+                        <img src="logopatro.png" alt="2.Patro Club" class="h-6 opacity-70">
+                    </div>
                 </div>
             </div>
         </div>
@@ -179,6 +185,77 @@
         </div>
     </section>
 
+    <!-- Gallery Section -->
+    <section class="py-20 bg-black">
+        <div class="container mx-auto px-6">
+            <h3 class="text-4xl font-bold text-center mb-4 gradient-text">Gallery of Past Parties</h3>
+            <p class="text-center text-gray-400 mb-16 text-lg">Experience the energy, vibes, and unforgettable moments</p>
+            
+            <!-- Image Carousel -->
+            <div class="gallery-container relative max-w-6xl mx-auto">
+                <div class="gallery-track flex transition-transform duration-500 ease-in-out" id="galleryTrack">
+                    <div class="gallery-slide min-w-full grid md:grid-cols-3 gap-4">
+                        <img src="prev-parties/good/party1.jpg" alt="Groovy Nights Party" class="w-full h-64 object-cover rounded-lg hover:scale-105 transition-transform duration-300">
+                        <img src="prev-parties/good/party2.jpg" alt="Groovy Nights Party" class="w-full h-64 object-cover rounded-lg hover:scale-105 transition-transform duration-300">
+                        <img src="prev-parties/good/party3.jpg" alt="Groovy Nights Party" class="w-full h-64 object-cover rounded-lg hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <div class="gallery-slide min-w-full grid md:grid-cols-3 gap-4">
+                        <img src="prev-parties/good/party4.jpg" alt="Groovy Nights Party" class="w-full h-64 object-cover rounded-lg hover:scale-105 transition-transform duration-300">
+                        <img src="prev-parties/good/party5.jpg" alt="Groovy Nights Party" class="w-full h-64 object-cover rounded-lg hover:scale-105 transition-transform duration-300">
+                        <img src="prev-parties/good/party6.jpg" alt="Groovy Nights Party" class="w-full h-64 object-cover rounded-lg hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <div class="gallery-slide min-w-full grid md:grid-cols-3 gap-4">
+                        <img src="prev-parties/good/party7.jpg" alt="Groovy Nights Party" class="w-full h-64 object-cover rounded-lg hover:scale-105 transition-transform duration-300">
+                        <img src="prev-parties/good/party8.jpg" alt="Groovy Nights Party" class="w-full h-64 object-cover rounded-lg hover:scale-105 transition-transform duration-300">
+                        <img src="prev-parties/good/party9.jpg" alt="Groovy Nights Party" class="w-full h-64 object-cover rounded-lg hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <div class="gallery-slide min-w-full grid md:grid-cols-3 gap-4">
+                        <img src="prev-parties/good/party10.jpg" alt="Groovy Nights Party" class="w-full h-64 object-cover rounded-lg hover:scale-105 transition-transform duration-300">
+                        <img src="prev-parties/good/party11.jpg" alt="Groovy Nights Party" class="w-full h-64 object-cover rounded-lg hover:scale-105 transition-transform duration-300">
+                        <img src="prev-parties/good/party12.jpg" alt="Groovy Nights Party" class="w-full h-64 object-cover rounded-lg hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <div class="gallery-slide min-w-full grid md:grid-cols-3 gap-4">
+                        <img src="prev-parties/good/party13.jpg" alt="Groovy Nights Party" class="w-full h-64 object-cover rounded-lg hover:scale-105 transition-transform duration-300">
+                        <img src="prev-parties/good/party14.jpg" alt="Groovy Nights Party" class="w-full h-64 object-cover rounded-lg hover:scale-105 transition-transform duration-300">
+                        <img src="prev-parties/good/party15.jpg" alt="Groovy Nights Party" class="w-full h-64 object-cover rounded-lg hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <div class="gallery-slide min-w-full grid md:grid-cols-3 gap-4">
+                        <img src="prev-parties/good/party16.jpg" alt="Groovy Nights Party" class="w-full h-64 object-cover rounded-lg hover:scale-105 transition-transform duration-300">
+                        <img src="prev-parties/good/party17.jpg" alt="Groovy Nights Party" class="w-full h-64 object-cover rounded-lg hover:scale-105 transition-transform duration-300">
+                        <div class="w-full h-64 bg-gradient-to-br from-purple-900 to-pink-900 rounded-lg flex items-center justify-center">
+                            <div class="text-center">
+                                <div class="text-4xl mb-4">🎉</div>
+                                <p class="text-white font-semibold">More amazing moments coming...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Navigation Buttons -->
+                <button onclick="previousSlide()" class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-purple-600 hover:bg-purple-700 text-white p-3 rounded-full transition-colors duration-300 z-10">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                    </svg>
+                </button>
+                <button onclick="nextSlide()" class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-purple-600 hover:bg-purple-700 text-white p-3 rounded-full transition-colors duration-300 z-10">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+                
+                <!-- Dots Indicator -->
+                <div class="flex justify-center mt-8 space-x-2">
+                    <button onclick="goToSlide(0)" class="gallery-dot w-3 h-3 rounded-full bg-purple-600 transition-all duration-300"></button>
+                    <button onclick="goToSlide(1)" class="gallery-dot w-3 h-3 rounded-full bg-gray-600 hover:bg-purple-400 transition-all duration-300"></button>
+                    <button onclick="goToSlide(2)" class="gallery-dot w-3 h-3 rounded-full bg-gray-600 hover:bg-purple-400 transition-all duration-300"></button>
+                    <button onclick="goToSlide(3)" class="gallery-dot w-3 h-3 rounded-full bg-gray-600 hover:bg-purple-400 transition-all duration-300"></button>
+                    <button onclick="goToSlide(4)" class="gallery-dot w-3 h-3 rounded-full bg-gray-600 hover:bg-purple-400 transition-all duration-300"></button>
+                    <button onclick="goToSlide(5)" class="gallery-dot w-3 h-3 rounded-full bg-gray-600 hover:bg-purple-400 transition-all duration-300"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="py-12 bg-black border-t border-gray-800 relative">
         <div class="container mx-auto px-6">
@@ -200,11 +277,7 @@
                             <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
                         </svg>
                     </a>
-                    <a href="#" class="text-gray-400 hover:text-purple-400 transition-colors duration-300">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.719-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.89 2.745.097.118.112.222.083.343-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.746-1.378l-.747 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.624 0 11.99-5.367 11.99-11.987C24.007 5.367 18.641.001 12.017.001z"/>
-                        </svg>
-                    </a>
+
                 </div>
                 
                 <!-- Copyright -->
@@ -216,13 +289,59 @@
         
         <!-- hbar logo in corner -->
         <div class="absolute bottom-4 left-4 opacity-30 hover:opacity-60 transition-opacity duration-300">
-            <img src="hbar_main_400x400 CIRCLE copy 2.png" alt="hbar" class="w-12 h-12">
+            <a href="https://www.hbar.blog/" target="_blank">
+                <img src="hbar_main_400x400 CIRCLE copy 2.png" alt="hbar" class="w-12 h-12">
+            </a>
         </div>
         
 
     </footer>
 
-    <!-- No JavaScript needed - Airtable handles everything! -->
+    <script>
+        // Gallery Carousel Functionality
+        let currentSlide = 0;
+        const totalSlides = 6;
+        
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+        }
+        
+        function previousSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateCarousel();
+        }
+        
+        function goToSlide(slideIndex) {
+            currentSlide = slideIndex;
+            updateCarousel();
+        }
+        
+        function updateCarousel() {
+            const track = document.getElementById('galleryTrack');
+            const dots = document.querySelectorAll('.gallery-dot');
+            
+            // Move the carousel
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            // Update dots
+            dots.forEach((dot, index) => {
+                if (index === currentSlide) {
+                    dot.classList.remove('bg-gray-600');
+                    dot.classList.add('bg-purple-600');
+                } else {
+                    dot.classList.remove('bg-purple-600');
+                    dot.classList.add('bg-gray-600');
+                }
+            });
+        }
+        
+        // Auto-advance carousel every 5 seconds
+        setInterval(nextSlide, 5000);
+        
+        // Initialize carousel
+        updateCarousel();
+    </script>
 
     <!-- 
     ========================================
